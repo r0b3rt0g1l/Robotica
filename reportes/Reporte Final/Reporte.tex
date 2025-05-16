@@ -291,112 +291,63 @@
 	{\titlerule[3pt]~\raisebox{-1.5pt}{\sc{\chaptername}~\thechapter}~\titlerule[3pt]%
 		\\\vspace{.05cm}\titlerule\\\filcenter #1 \\\vspace{.25cm}\titlerule}
 	
-	\chapter{Introducción} \label{chap:planteamiento-del-problema}
+	% Capítulo 1: Introducción
+	\chapter{Introducción} \label{chap:introduccion}
 	\input{capitulos/Introduccion}
 	
-	\part{Marco teórico}
-		\chapter{Revisión del estado del arte} \label{chap:estado del arte}
-		\input{capitulos/estado_del_arte}
-
-		\chapter{Dinámica modelada por ángulos de Euler} \label{chap:CMD}
-		\input{capitulos/Control_modos_deslizantes}
-		
-		\chapter{Dinámica modelada por cuaterniones} \label{chap:cuaterniones}
-		\input{capitulos/cuaterniones}
-		
-		\chapter{Estimación de los estados} \label{chap:estimacion}
-		\input{capitulos/estimacion_estados}
-		
-	\part{Desarrollo}
-%		\chapter{Introducción a la propuesta de solución} \label{chap:Introducción a la propuesta de solución}
-%		\input{capitulos/Desarrollo_Introduccion}
-		
-		\chapter{Metodología} \label{chap:Metodologia}
-		\input{capitulos/Metodologia}
-		
-		\chapter{Materiales y equipo} \label{chap:Materiales}
-		\input{capitulos/Materiales}
-		
-		\chapter{Avances y resultados} \label{chap:Avances y resultados}
-		\input{capitulos/Avances_resultados}
-		
-%		\chapter{Propuesta de solución}
-%		\chapter{Metodología}
-%		\chapter{Descripción de las actividades a realizar}
-%		\chapter{Cronograma de actividades}
-%		\chapter{Presupuesto requerido (equipo y material de laboratorio)}
-%		\chapter{Pruebas realizadas}
-%		\input{capitulos/Desarrollo}
-		
-	\part{Resultados, conclusiones y recomendaciones}
-		\chapter{Conclusiones y recomendaciones} \label{chap:conclusiones}
-		\input{capitulos/Conclusiones}
-		
-%		\chapter{Competencias desarrolladas y/o aplicadas}
-%		\input{capitulos/competencias-desarrolladas}
-%	
-%	\part{Desarrollo}
-%		\chapter{Procedimiento y descripción de las actividades realizadas}
-%		\input{capitulos/procedimiento-y-descripcion-de-las-actividades-realizadas}
-%		\chapter{Preparación del entorno}\label{chap:preparacion-del-entorno}
-%		\input{capitulos/preparacion_del_entorno}
-%		\chapter{Proyectos similares}\label{chap:proyectos-similares}
-%		\input{capitulos/proyectos-similares}
-%		
-%	\part{Resultados, conclusiones y recomendaciones}
-%		\chapter{Análisis de resultados}
-%		\input{capitulos/14_analisis_de_resultados}
-%		
-%		\chapter{Conclusiones y recomendaciones}\label{chap:conclusiones}
-%		\input{capitulos/21_conclusiones_y_recomendaciones}
-%		
-%		\chapter{Competencias desarrolladas y/o aplicadas}
-%		\input{capitulos/competencias-desarrolladas}
-
-	%\printglossary[title=Glosario,toctitle=Glosario]
-	%linea que anexa la palbra Glosario al índice
-	%\addcontentsline{toc}{chapter}{Glosario}
+	% Capítulo 2: Marco Teórico
+	\chapter{Marco Teórico} \label{chap:marco_teorico}
+	\input{capitulos/Marco_teorico/Introduccion}
 	
-	%\printglossary[type=\acronymtype]
-	%linea que anexa la palbra Acrónimo al índice
-	%\addcontentsline{toc}{chapter}{Acrónimos}
-
-%	\part*{Bibliografía y Firmas}
-	\addcontentsline{toc}{part}{Bibliografía y Firmas}
-	%\newpage
-	\titleformat{\chapter}
-	{\bfseries\huge}
-	{}
-	{0pt}
-	{\titlerule[3pt]~\raisebox{-1.5pt}{\sc{	\appendixname}~\thechapter}~\titlerule[3pt]%
-		\\\vspace{.05cm}\titlerule\\\filcenter #1 \\\vspace{.25cm}\titlerule}
-	
-	
-	
-	%\chapter{\texttt{fly\_bot}}
-	%\input{capitulos/fly-bot}
-	
-%	\part{Manual de uso de Hector quadrotor}\appendix\addappheadtotoc\label{part.manual}
-%		\chapter{Descripción y simulación del modelo de Hector quadrotor}\label{chap:hector-traduccion}
-%		\input{capitulos/hector-traduccion}
-%		
-%		\chapter{\texttt{hector\_quadrotor}}\label{sec.quadrotor}
-%		\input{capitulos/A1_manual}
-%		
-%		\chapter{\texttt{hector\_gazebo}}\label{sec.gazebo}
-%		\input{capitulos/hector-gazebo}
-%		
-%		\chapter{\texttt{hector\_models}}\label{sec.models}
-%		\input{capitulos/hector-models}
+		\section{Cinemática} \label{sec:cinematica}
+		\input{capitulos/Marco_teorico/Cinematica}
 		
-		%\chapter{\texttt{hector\_localization}}\label{sec.localization}
-		%\input{capitulos/hector-localization}
+		\section{ROS} \label{sec:ros}
+		\input{capitulos/Marco_teorico/ROS}
 		
-		%\chapter{\texttt{hector\_slam}}\label{sec.hector.slam}
-		%\input{capitulos/hector-slam}
-	%\input{capitulos/25_anexos}
-	%\chapter{Símbolos}
-	%\listofsymbols\chapter
+		\section{Dinámica} \label{sec:dinamica}
+		\input{capitulos/Marco_teorico/Dinamica}
+	
+	% Capítulo 3: Desarrollo
+	\chapter{Desarrollo} \label{chap:desarrollo}
+	\input{capitulos/Desarrollo/Introduccion}
+	
+		\section{Características del Robot} \label{sec:caracteristicas_del_robot}
+		\input{capitulos/Desarrollo/Caracteristicas/Resumen_tabla}
+		\input{capitulos/Desarrollo/Caracteristicas/Geometria_DH}
+		
+		\subsection{Partes} \label{subsec:partes}
+		\input{capitulos/Desarrollo/Caracteristicas/Partes}
+		
+		\subsubsection{Motores} \label{subsubsec:motores}
+		\input{capitulos/Desarrollo/Caracteristicas/Motores}
+		
+		\subsubsection{Eslabones} \label{subsubsec:eslabones}
+		\input{capitulos/Desarrollo/Caracteristicas/Eslabones}
+		
+		\subsection{Límites y propiedades dinámicas de las articulaciones} \label{subsec:limites_propiedades}
+		\input{capitulos/Desarrollo/Caracteristicas/Limites_propiedades}
+		
+		\section{Proceso de Cinemática} \label{sec:proceso_cinematica}
+		\input{capitulos/Desarrollo/Proceso_Cinematica}
+		
+		\section{Control} \label{sec:control}
+		\input{capitulos/Desarrollo/Control}
+	
+	% Capítulo 4: Resultados y Conclusiones
+	\chapter{Resultados y Conclusiones} \label{chap:resultados_conclusiones}
+	
+	\section{Resultados} \label{sec:resultados}
+	\subsection{Gráficas de Cinemática} \label{subsec:graficas_cinematica}
+	\input{capitulos/Resultados/Graficas_Cinematica}
+	
+	\subsection{Gráficas de Dinámica} \label{subsec:graficas_dinamica}
+	\input{capitulos/Resultados/Graficas_Dinamica}
+	
+	\section{Conclusiones individuales} \label{sec:conclusiones}
+	\input{capitulos/Resultados/Conclusiones_Panchito}
+	\input{capitulos/Resultados/Conclusiones_Juanito}
+		
 	
 	\titleformat{\chapter}
 	{\bfseries\huge}
