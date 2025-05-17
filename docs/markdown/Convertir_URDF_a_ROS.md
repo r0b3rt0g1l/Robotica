@@ -22,8 +22,8 @@ Los paquetes de ROS tienen un estandar, donde se recomienda (aunque no es obliga
   - [5.6 Autocolisión](#56-autocolisión)
 - [6 Definir controladores de ROS usando YAML](#6-definir-controladores-de-ros-usando-yaml)
 - [7 Crear archivo launch del robot en Gazebo](#7-crear-archivo-launch-del-robot-en-gazebo)
-- [Ejecutar el archivo launch por primera vez en Gazebo](#ejecutar-el-archivo-launch-por-primera-vez-en-gazebo)
-- [MoveIt Setup Assistant](#moveit-setup-assistant)
+- [8 Ejecutar el archivo launch por primera vez en Gazebo](#8-ejecutar-el-archivo-launch-por-primera-vez-en-gazebo)
+- [9 MoveIt Setup Assistant](#9-moveit-setup-assistant)
 
 
 ## 1. Importar proyecto en Ubuntu
@@ -575,7 +575,7 @@ catkin build
 sb
 ```
 
-## Ejecutar el archivo launch por primera vez en Gazebo
+## 8 Ejecutar el archivo launch por primera vez en Gazebo
 En una terminal, ejecuta
 ```bash
 roscore
@@ -591,6 +591,8 @@ En mi caso, es
 roslaunch era_description era_description.launch
 ```
 
-## MoveIt Setup Assistant
+Al hacer esto, debería de aparecer sin erroress. Solo deben aparecer las advertencias de que no están configurados los PID
+
+## 9 MoveIt Setup Assistant
 
 Un tutorial más completo viene en la [página oficial](https://moveit.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html) y es el que recomiendo que sigan, pero igual pueden ver [el PDF](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/2e713d1acf99981a315667f32bbb82ab184ffcfe/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf) que hizo AgeofRobotics o su video que aparece en el PDF.
