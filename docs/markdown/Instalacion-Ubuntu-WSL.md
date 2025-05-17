@@ -72,7 +72,7 @@ wsl -d Ubuntu-20.04 --user miusuario
 
 2. Comprueba dentro de Ubuntu si se seleccionó correctamente
 ### 3. Configurar usuario predeterminado
-Si después de seguir los pasos anteriores sigue iniciando como **root**, prueba forzar el cambio manualmente editando el archivo `/etc/wsl.conf` **dentro de WSL**. Puedes abrir el explorador de archivos de Windows y abrir la carpeta `\\wsl.localhost\Ubuntu-24.04\etc` o en la terminal de Ubuntu, escribir:
+Si después de seguir los pasos anteriores sigue iniciando como **root**, prueba forzar el cambio manualmente editando el archivo `/etc/wsl.conf` **dentro de WSL**. Puedes abrir el explorador de archivos de Windows y abrir la carpeta `\\wsl.localhost\Ubuntu-20.04\etc` o en la terminal de Ubuntu, escribir:
 ```bash
 sudo nano /etc/wsl.conf
 ```
