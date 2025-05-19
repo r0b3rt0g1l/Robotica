@@ -129,7 +129,7 @@ rosrun turtle_control move_turtle.py
 En el mismo paquete, crea `read_pose.py`:
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 from turtlesim.msg import Pose
 
