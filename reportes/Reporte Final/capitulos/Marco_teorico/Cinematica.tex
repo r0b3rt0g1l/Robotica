@@ -1,0 +1,19 @@
+\subsection*{Definición}
+La \emph{Cinemática} estudia el movimiento de los cuerpos sin considerar las fuerzas que lo producen. En robótica de manipuladores, las dos ramas principales son:
+
+\begin{enumerate}
+	\item \textbf{Cinemática Directa:} dado un conjunto de ángulos articulares, se calcula la posición y orientación del efector final en el espacio cartesiano.
+	\item \textbf{Cinemática Inversa:} dada una posición/dirección deseada del efector final, se resuelven los ángulos articulares necesarios.
+\end{enumerate}
+
+\subsection*{Notación Denavit–Hartenberg}
+Para sistematizar la obtención de las ecuaciones de movimiento, se emplea la convención DH:
+\[
+{}^{i-1}T_i = 
+\begin{bmatrix}
+	\cos\theta_i & -\sin\theta_i & 0 & a_{i-1} \\
+	\sin\theta_i\cos\alpha_{i-1} & \cos\theta_i\cos\alpha_{i-1} & -\sin\alpha_{i-1} & -\sin\alpha_{i-1}d_i \\
+	\sin\theta_i\sin\alpha_{i-1} & \cos\theta_i\sin\alpha_{i-1} & \cos\alpha_{i-1} & \cos\alpha_{i-1}d_i \\
+	0 & 0 & 0 & 1
+\end{bmatrix}.
+\]
