@@ -544,7 +544,7 @@ Para crearlo, ve a la carpeta `/src/MIROBOT/launch` y crea un nuevo archivo `MIR
     <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
     
     <!--spawn model-->
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model Your_Robot_name_defined_in_urdf_file -J joint_1 0.0 -J joint_2 0.0 -J joint_3 0.0 -J joint_4 0.0 -J joint_5 0.0 - J joint_6 0.0 -J joint_7 0.0" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model Your_Robot_name_defined_in_urdf_file -J joint_1 0.0 -J joint_2 0.0 -J joint_3 0.0 -J joint_4 0.0 -J joint_5 0.0 -J joint_6 0.0 -J joint_7 0.0" />
     
     <!--Load and launch the joint trajectory controller-->
     <rosparam file ="$(find Your_package_name)/config/Your_arm_trajectory_contoller_file_name.yaml" command="load"/>
@@ -591,8 +591,20 @@ En mi caso, es
 roslaunch era_description era_description.launch
 ```
 
-Al hacer esto, debería de aparecer sin erroress. Solo deben aparecer las advertencias de que no están configurados los PID
+Al hacer esto, el ÚNICO ERROR debe ser algo parecido a lo siguiente de color rojo:
+
+```bash
+[ERROR] [1747510277.338864951, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_1
+[ERROR] [1747510277.339717345, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_2
+[ERROR] [1747510277.340318615, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_3
+[ERROR] [1747510277.341178963, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_4
+[ERROR] [1747510277.341910515, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_5
+[ERROR] [1747510277.342571062, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_6_1
+[ERROR] [1747510277.343286497, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_6_2
+```
+Si encuentras algún otro error, ahí mismo te dice más o menos cómo solucionarlo (por ejemplo, `no se encuentra base_link y no se puede conectar a base_joint` o algo parecido).
 
 ## 9 MoveIt Setup Assistant
 
-Un tutorial más completo viene en la [página oficial](https://moveit.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html) y es el que recomiendo que sigan, pero igual pueden ver [el PDF](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/2e713d1acf99981a315667f32bbb82ab184ffcfe/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf) que hizo AgeofRobotics o su video que aparece en el PDF.
+Un tutorial más completo viene en la [página oficial](https://moveit.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html#step-1-start) y es el que recomiendo que sigan, pero igual pueden ver [el PDF](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/2e713d1acf99981a315667f32bbb82ab184ffcfe/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf) que hizo AgeofRobotics o su [video](https://youtu.be/DZB5_4JCS0A) que aparece en el PDF.
+
