@@ -98,7 +98,7 @@ catkin build
 ```
 5.  Abrirlo por defecto en terminal.
 ```
-echo 'source ~/Robotica/install/setup.bash' >> ~/.bashrc
+echo 'source ~/Robotica/devel/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 ```
 

@@ -1,21 +1,25 @@
-\LoadClass[a4paper,12pt, oneside]{book}
 \usepackage[skins,minted]{tcolorbox}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish, es-tabla]{babel}
 \languageshorthands{spanish}
+%\usepackage{lmodern} % Usa las fuentes modernas de LaTeX
 \usepackage[numbers]{natbib}
 %\usepackage{morewrites}
 \usepackage{inconsolata}
 \usepackage{mdframed}
 \usepackage{minted}
-\usepackage{listings}
+\usepackage{bm}
+\usepackage{listingsutf8}
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{graphicx, import}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{array}    % Necesario para centrar horizontal y verticalmente
 \usepackage{xcolor}
 \usepackage{pdfpages}
 %\usepackage{color}
@@ -27,22 +31,9 @@
 \usepackage{caption}
 \usepackage{setspace}
 \usepackage[explicit]{titlesec}
-\usepackage[a4paper]{geometry}
-\geometry{top=3cm, bottom=3cm, left=4cm, right=2cm}
-%\usepackage[draft]{listofsymbols}
-%\usepackage[toc,acronym]{glossaries}
-%\makeglossaries
-%\glossarystyle{altlistgroup}
+\usepackage[a4paper,margin=2cm]{geometry}
 
-% se incluye el archivo de definición de acrónimos
-%\include{acronimos}
-
-% se incluye el archivo de definición de glsario
-%\include{glosario}
-
-%\opensymdef
-%\input{capitulos/A2_simbolos}
-%\closesymdef
+%\geometry{top=3cm, bottom=3cm, left=4cm, right=2cm} % Si lo quieres imprimir
 
 \definecolor{green1}{HTML}{1dae28}
 \definecolor{green2}{HTML}{afd095}
@@ -57,7 +48,37 @@
 \definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
 \definecolor{lbcolor}{rgb}{0.95,0.95,0.95}
 \definecolor{mintedframe}{rgb}{0.0,0.0,0.0}
+\definecolor{codebg}{rgb}{0.96,0.96,0.96}
+\definecolor{colorurls}{RGB}{107,17,17}
+\definecolor{colorsql}{RGB}{255,245,245}
+\definecolor{colorreferences}{RGB}{48,134,3}
+\definecolor{titulo}{gray}{0.65}			%------ color para fondo del titulo de tablas.
+
+\hypersetup{
+	%bookmarks=true,         % show bookmarks bar?
+	unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdftitle={Reporte final de Robótica},    % title
+	%	pdfauthor={},     % author
+	pdfsubject={Reporte final de Robótica},   % subject of the document
+	%pdfcreator={pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2016/dev)},   % creator of the document
+	%pdfproducer={Panel HJ 2017}, % producer of the document
+	pdfkeywords={Manipulador industrial} {Robotica} {ros} {gazebo}, % list of keywords
+	%pdfnewwindow=true,      % links in new PDF window
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+	citecolor=colorreferences,        % color of links to bibliography
+	filecolor=magenta,      % color of file links
+	urlcolor=blue,           % color of external links
+	linkbordercolor={0 0 0}
+}
+
 \lstset{
+	inputencoding=utf8,
+	language=Python,
 	frame=Ltb,
 	tabsize=2,
 	framerule=0pt,
@@ -105,10 +126,11 @@
 	breaklines=true,
 	breaksymbolleft=\ 
 }
-
-
-% minimizar fragmentado de listados
-%\lstnewenvironment{listing}[1][]{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+%\setminted{%
+%	breaklines,
+%	breaksymbolleft=,      % vacía la marca de continuación
+%	breaksymbolright=      % también limpia el símbolo a la derecha
+%}
 
 
 \lstdefinestyle{consola}{
@@ -135,47 +157,8 @@
 
 \lstdefinestyle{C}{language=C}
 \lstdefinestyle{XML}{language=XML}
-\definecolor{codebg}{rgb}{0.96,0.96,0.96}
-\definecolor{colorurls}{RGB}{107,17,17}
-\definecolor{colorsql}{RGB}{255,245,245}
-\definecolor{colorreferences}{RGB}{48,134,3}
-\definecolor{titulo}{gray}{0.65}			%------ color para fondo del titulo de tablas.
-\hypersetup{
-	%bookmarks=true,         % show bookmarks bar?
-	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-	pdftoolbar=true,        % show Acrobat’s toolbar?
-	pdfmenubar=true,        % show Acrobat’s menu?
-	pdffitwindow=false,     % window fit to page when opened
-	pdfstartview={FitH},    % fits the width of the page to the window
-	pdftitle={Diseño de modelo para simulación 3D de VANT tipo cuadricóptero},    % title
-	pdfauthor={Jesús Iván Medina Gil Lamadrid},     % author
-	pdfsubject={Reporte final de residencias},   % subject of the document
-	%pdfcreator={pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2016/dev)},   % creator of the document
-	%pdfproducer={Panel HJ 2017}, % producer of the document
-	pdfkeywords={simulación} {quadrotor} {vant} {ros} {gazebo} {hector\_quadrotor}, % list of keywords
-	%pdfnewwindow=true,      % links in new PDF window
-	colorlinks=true,       % false: boxed links; true: colored links
-	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
-	citecolor=colorreferences,        % color of links to bibliography
-	filecolor=magenta,      % color of file links
-	urlcolor=blue,           % color of external links
-	linkbordercolor={0 0 0}
-}
 
-\lstset{literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-	{€}{{\EUR}}1 {£}{{\pounds}}1 {'}{{\textquotesingle}}1 {Ñ}{{\~N}}1
-	{ñ}{{\~n}}1
-}
+\DeclareMathOperator{\diag}{diag}
 
 \newtcblisting{terminal}[2][]{
 	listing engine=minted,
@@ -196,16 +179,45 @@
 	title code={\path[draw=mintedframe, dashed, fill=mintedbackground](title.south west)--(title.south east);},
 	frame code={\path[draw=mintedframe, fill=mintedbackground](frame.south west) rectangle (frame.north east);}
 }
+
 \newenvironment{doble}
 {\doublespacing
 }
 
 %\newcounter{comando}[section]
 %\newenvironment{comando}[1][]{\refstepcounter{comando}\par\medskip
-%	\noindent \textbf{Comando~\thecomando. #1} \rmfamily}{\medskip}
+	%	\noindent \textbf{Comando~\thecomando. #1} \rmfamily}{\medskip}
 %\begin{terminal}{#1}
-	
+
 %\end{terminal}
 %}{\medskip}
 
-\graphicspath{ {img/} }
+\graphicspath{{img/}{tablas/}{portada/}}  % Las imágenes se buscarán en la carpeta "img"
+
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice}}
+
+\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++ \space}}}
+\def\Cc{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+\newcommand{\ffolder}[1]{\menu{\faFolderO \space #1}}
+\newcommand{\ffile}[1]{\menu{\faFileO \space #1}}
+\newcommand{\folder}{\faFolderO \space}
+\newcommand{\file}{\faFileO \space}
+\newcommand{\world}{\faGlobe \space}
+\newcommand{\wworld}[1]{\menu{\faGlobe \space #1}}
+\newcommand{\SB}{\{B\}} % Define el sistema del cuerpo
+\newcommand{\SI}{\{I\}} % Define el sistema inercial
+
+\newcounter{actividad} % Define un contador llamado "actividad"
+
+\newfloat{Comando}{h}{lot}[chapter]
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand\listingscaption{Código}
+\newcommand{\code}[1]{\colorbox{lightgray}{\texttt{#1}}}
+
+\renewcommand\lstlistingname{Código}
+\renewcommand{\appendixname}{Anexo}
+\renewcommand{\appendixtocname}{Anexos}
+%\renewcommand{\appendixpagename}{Anexo}
+\renewcommand\labelitemi{$\bullet$}
