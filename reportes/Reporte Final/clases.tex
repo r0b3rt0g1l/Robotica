@@ -31,6 +31,7 @@
 \usepackage{caption}
 \usepackage{setspace}
 \usepackage[explicit]{titlesec}
+\usepackage{booktabs}
 \usepackage[a4paper,margin=2cm]{geometry}
 
 %\geometry{top=3cm, bottom=3cm, left=4cm, right=2cm} % Si lo quieres imprimir
@@ -104,6 +105,14 @@
 	breaklines=true
 }
 
+\setminted[matlab]{%
+	breaklines=true,       % activa el ajuste de línea
+	breakanywhere=true,    % permite partir en cualquier punto si no hay espacios
+	breaksymbolleft=,      % quita el símbolo de continuación
+	autogobble            % elimina sangrías comunes
+%	fontsize=\footnotesize % reduce tamaño de fuente para que quepa mejor
+}
+
 \setminted[bash]{
 	bgcolor=mintedbackground,
 	fontfamily=tt,
@@ -170,6 +179,50 @@
 	top=0mm,
 	bottom=0mm
 }
+
+\newtcblisting{matlabcode}[2][]{%
+  	listing engine=minted,
+	listing only,
+	title=#2,
+	minted language=matlab,
+	minted options={%
+		linenos,            % activa numeración de líneas
+		numbersep=1mm,      % separación texto–números
+		breaklines,         % opcional: ajuste automático
+		autogobble,          % opcional: recortar sangrías
+		frame=leftline,     % línea vertical a la izquierda del bloque
+		framesep=1mm,
+		tabsize=4,
+	},
+%	colback=gray!5,
+%	colframe=black!70,
+	top=0mm,
+	bottom=0mm
+	#1
+}
+
+
+\newtcblisting{latexcode}[2][]{%
+	listing engine=minted,
+	listing only,
+	title=#2,
+	minted language=latex,
+	minted options={%
+		linenos,            % activa numeración de líneas
+		numbersep=1mm,      % separación texto–números
+		breaklines,         % opcional: ajuste automático
+		autogobble,          % opcional: recortar sangrías
+		frame=leftline,     % línea vertical a la izquierda del bloque
+		framesep=1mm,
+		tabsize=4,
+	},
+	%	colback=gray!5,
+	%	colframe=black!70,
+	top=0mm,
+	bottom=0mm
+	#1
+}
+
 
 \newtcblisting{consolestyle}[2][]{enhanced, listing engine=minted, 
 	listing only,#1, title=#2, minted language=bash, 
