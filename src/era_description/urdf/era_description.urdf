@@ -5,9 +5,9 @@
 <robot
   name="era_description">
   <link name="world"/>
-  <joint name="base_joint" type="fixed">
+  <joint name="joint_0" type="fixed">
     <parent link="world"/>
-    <child link="base_link"/>
+    <child link="link_0"/>
     <origin rpy="0 0 0" xyz="0.0 0.0 0.17"/>
   </joint>
   <link
