@@ -56,7 +56,7 @@ Si al iniciar no te pide el usuario o ves que aparece `root` en la terminal, pue
 ```bash
 adduser miusuario
 ```
-* Cuando te pida contraseña y detalles, introdúcelos o presiona ENTER para omitir (La contraseña se oculta, así que no te asustes si parece que el teclado no funciona).
+* Cuando te pida contraseña y detalles, introdúcelos o presiona `ENTER` para omitir (La contraseña se oculta, así que no te asustes si parece que el teclado no funciona).
 
 2. Agrega el usuario al grupo de **sudo** para que tenga permisos administrativos:
 ```bash
@@ -81,7 +81,7 @@ Luego, agrega el siguiente contenido:
 [user]
 default=miusuario
 ```
-Para guardar los cambios, presiona `Ctrl + X` (guardar), luego `Y` (aceptar) y ENTER (usar nombre actual). Entonces reinicia WSL en **PowerShell** con:
+Para guardar los cambios, presiona `Ctrl + X` (guardar), luego `Y` (aceptar) y `ENTER` (usar nombre actual). Entonces reinicia WSL en **PowerShell** con:
 ```powershell
 wsl --shutdown
 ```
